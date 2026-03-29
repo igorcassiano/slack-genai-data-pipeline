@@ -1,0 +1,152 @@
+[
+  {
+    "name": "codigo_unidade_negocio",
+    "type": "STRING",
+    "description": "Código da unidade de negócio. Sinônimos: 'código UN'."
+  },
+  {
+    "name": "codigo_pedido",
+    "type": "STRING",
+    "description": "Chave primária do pedido. Código único que identifica a compra. Útil para contagem de pedidos totais (COUNT DISTINCT)."
+  },
+  {
+    "name": "data_venda",
+    "type": "DATE",
+    "description": "Data de venda do pedido no formato YYYY-MM-DD. Coluna usada para particionamento. Ideal para filtros de dia, mês e ano."
+  },
+  {
+    "name": "data_hora_venda",
+    "type": "TIMESTAMP",
+    "description": "Data e hora exata da venda do pedido. Útil para análises granulares de horário de pico."
+  },
+  {
+    "name": "ciclo",
+    "type": "STRING",
+    "description": "Ciclo comercial vigente no momento da venda (ex: 'CICLO 01', 'CICLO 02', 'CICLO 03')."
+  },
+  {
+    "name": "ano_ciclo",
+    "type": "INTEGER",
+    "description": "Ano correspondente ao ciclo comercial da venda (ex: 2023, 2024)."
+  },
+  {
+    "name": "descricao_ciclo",
+    "type": "STRING",
+    "description": "Descrição textual do ciclo de marketing associado à venda (ex: 'PAIS', 'MAES', 'NATAL', 'NAMORADOS', 'REGULAR')."
+  },
+  {
+    "name": "codigo_produto",
+    "type": "STRING",
+    "description": "Código SKU único do produto vendido."
+  },
+  {
+    "name": "codigo_produto_pai",
+    "type": "STRING",
+    "description": "Chave de agrupamento para kits e variantes de produto."
+  },
+  {
+    "name": "nome_marca",
+    "type": "STRING",
+    "description": "Nome da marca do produto vendido."
+  },
+  {
+    "name": "nome_categoria",
+    "type": "STRING",
+    "description": "Categoria do produto . Sinônimos: 'departamento'."
+  },
+  {
+    "name": "produto_combo_kit",
+    "type": "BOOLEAN",
+    "description": "Flag booleana (TRUE/FALSE) indicando se o produto vendido é um combo ou kit promocional."
+  },
+  {
+    "name": "estado_uf",
+    "type": "STRING",
+    "description": "Sigla da Unidade Federativa de destino do pedido (ex: 'SP', 'RJ', 'MG')."
+  },
+  {
+    "name": "nome_regiao",
+    "type": "STRING",
+    "description": "Região geográfica de destino do pedido (ex: 'SUDESTE', 'NORDESTE', 'SUL')."
+  },
+  {
+    "name": "nome_cidade",
+    "type": "STRING",
+    "description": "Nome por extenso da cidade de destino da entrega do pedido."
+  },
+  {
+    "name": "valor_receita_bruta",
+    "type": "FLOAT",
+    "description": "Valor total bruto cobrado antes de impostos e devoluções. Sinônimos: 'faturamento bruto', 'GMV'."
+  },
+  {
+    "name": "valor_receita_faturada",
+    "type": "FLOAT",
+    "description": "Receita líquida após a emissão da nota fiscal. Sinônimos: 'Receita Net', 'faturamento líquido'."
+  },
+  {
+    "name": "valor_venda_pago",
+    "type": "FLOAT",
+    "description": "Valor efetivamente pago pelo cliente no meio de pagamento."
+  },
+  {
+    "name": "valor_venda_desconto",
+    "type": "FLOAT",
+    "description": "Soma dos descontos aplicados ao item vendido."
+  },
+  {
+    "name": "status_pedido",
+    "type": "STRING",
+    "description": "Status atualizado do pedido. Valores esperados incluem: ('FATURADO','CANCELADO'). Sinônimos: 'situação do pedido'."
+  },
+  {
+    "name": "pedido_faturado",
+    "type": "BOOLEAN",
+    "description": "Flag (TRUE/FALSE) indicando se a nota fiscal do pedido já foi emitida."
+  },
+  {
+    "name": "pedido_aprovado",
+    "type": "BOOLEAN",
+    "description": "Flag (TRUE/FALSE) indicando se o pagamento do cliente foi aprovado."
+  },
+  {
+    "name": "pedido_faturado_aprovado",
+    "type": "BOOLEAN",
+    "description": "Flag (TRUE/FALSE) consolidada. TRUE apenas se o pedido foi simultaneamente aprovado (pagamento) e faturado (nota fiscal)."
+  },
+  {
+    "name": "nome_canal_venda",
+    "type": "STRING",
+    "description": "Canal onde a venda foi efetuada. Valores exatos possíveis: ['APP','MARKETPLACE OUT','MARKETPLACE GB','MARKETPLACE IN','SITE']. Sinônimos: 'origem do pedido', 'plataforma de compra'."
+  },
+  {
+    "name": "origem_trafego",
+    "type": "STRING",
+    "description": "Origem do tráfego web que gerou a conversão. Caso seja questionado sobre o ROI (retorno sobre o investimento), declare que só pode fornecer a receita bruta/líquida gerada. Valores comuns: ['PAGO', 'NÃO PAGO', 'CRM', 'OUTROS', 'BRAND AWARENESS']."
+  },
+  {
+    "name": "canal_midia",
+    "type": "STRING",
+    "description": "Veículo ou canal de mídia que gerou o clique para a venda. Caso seja questionado sobre o ROI (retorno sobre o investimento), declare que só pode fornecer a receita bruta/líquida gerada. Valores comuns: ['GOOGLE', 'FACEBOOK', 'INSTAGRAM']."
+  },
+  {
+    "name": "grupo_canal_midia",
+    "type": "STRING",
+    "description": "Canais de mídias agrupados em grupos similares. Exemplo: Google, Facebook e Instagram são agrupados como 'REDES SOCIAIS' neste campo. Caso seja questionado sobre o ROI (retorno sobre o investimento), declare que só pode fornecer a receita bruta/líquida gerada. Valores comuns: ['REDES SOCIAIS', 'BUSCADORES DE IA', 'MECANISMOS DE BUSCA']."
+  },
+  {
+    "name": "nome_cupom",
+    "type": "STRING",
+    "description": "Código do voucher ou cupom promocional aplicado pelo cliente na compra. Caso seja questionado sobre o ROI (retorno sobre o investimento), declare que só pode fornecer a receita bruta/líquida gerada."
+  },
+  {
+    "name": "tipo_entrega",
+    "type": "STRING",
+    "description": "Modalidade de entrega escolhida pelo cliente. Valores possíveis: ['ENTREGA PADRÃO', 'RETIRADO NA LOJA', 'NÃO ENTREGUE']. Sinônimos: 'método de envio'."
+  },
+  {
+    "name": "cpf_consumidor_anonimizado",
+    "type": "STRING",
+    "description": "Identificador único do cliente (CPF anonimizado). Útil para calcular o total de clientes únicos (compradores distintos) usando COUNT DISTINCT."
+  }
+]

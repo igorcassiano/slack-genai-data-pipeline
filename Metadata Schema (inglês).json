@@ -1,0 +1,152 @@
+[
+  {
+    "name": "codigo_unidade_negocio",
+    "type": "STRING",
+    "description": "Business unit code. Synonyms: 'código UN'."
+  },
+  {
+    "name": "codigo_pedido",
+    "type": "STRING",
+    "description": "Order primary key. Unique code that identifies the purchase. Useful for counting total orders (COUNT DISTINCT)."
+  },
+  {
+    "name": "data_venda",
+    "type": "DATE",
+    "description": "Order sales date in YYYY-MM-DD format. Column used for partitioning. Ideal for day, month, and year filters."
+  },
+  {
+    "name": "data_hora_venda",
+    "type": "TIMESTAMP",
+    "description": "Exact date and time of the order sale. Useful for granular peak hour analysis."
+  },
+  {
+    "name": "ciclo",
+    "type": "STRING",
+    "description": "Commercial cycle in effect at the time of sale (e.g., 'CICLO 01', 'CICLO 02', 'CICLO 03')."
+  },
+  {
+    "name": "ano_ciclo",
+    "type": "INTEGER",
+    "description": "Year corresponding to the commercial cycle of the sale (e.g., 2023, 2024)."
+  },
+  {
+    "name": "descricao_ciclo",
+    "type": "STRING",
+    "description": "Textual description of the marketing cycle associated with the sale (e.g., 'PAIS', 'MAES', 'NATAL', 'NAMORADOS', 'REGULAR')."
+  },
+  {
+    "name": "codigo_produto",
+    "type": "STRING",
+    "description": "Unique SKU code of the sold product."
+  },
+  {
+    "name": "codigo_produto_pai",
+    "type": "STRING",
+    "description": "Grouping key for kits and product variants."
+  },
+  {
+    "name": "nome_marca",
+    "type": "STRING",
+    "description": "Brand name of the sold product."
+  },
+  {
+    "name": "nome_categoria",
+    "type": "STRING",
+    "description": "Product category. Synonyms: 'departamento'."
+  },
+  {
+    "name": "produto_combo_kit",
+    "type": "BOOLEAN",
+    "description": "Boolean flag (TRUE/FALSE) indicating whether the sold product is a promotional combo or kit."
+  },
+  {
+    "name": "estado_uf",
+    "type": "STRING",
+    "description": "Federative Unit acronym of the order destination (e.g., 'SP', 'RJ', 'MG')."
+  },
+  {
+    "name": "nome_regiao",
+    "type": "STRING",
+    "description": "Geographic region of the order destination (e.g., 'SUDESTE', 'NORDESTE', 'SUL')."
+  },
+  {
+    "name": "nome_cidade",
+    "type": "STRING",
+    "description": "Full name of the order delivery destination city."
+  },
+  {
+    "name": "valor_receita_bruta",
+    "type": "FLOAT",
+    "description": "Total gross amount charged before taxes and returns. Synonyms: 'faturamento bruto', 'GMV'."
+  },
+  {
+    "name": "valor_receita_faturada",
+    "type": "FLOAT",
+    "description": "Net revenue after invoice issuance. Synonyms: 'Receita Net', 'faturamento líquido'."
+  },
+  {
+    "name": "valor_venda_pago",
+    "type": "FLOAT",
+    "description": "Amount effectively paid by the customer in the payment method."
+  },
+  {
+    "name": "valor_venda_desconto",
+    "type": "FLOAT",
+    "description": "Sum of discounts applied to the sold item."
+  },
+  {
+    "name": "status_pedido",
+    "type": "STRING",
+    "description": "Updated order status. Expected values include: ('FATURADO','CANCELADO'). Synonyms: 'situação do pedido'."
+  },
+  {
+    "name": "pedido_faturado",
+    "type": "BOOLEAN",
+    "description": "Flag (TRUE/FALSE) indicating if the order invoice has already been issued."
+  },
+  {
+    "name": "pedido_aprovado",
+    "type": "BOOLEAN",
+    "description": "Flag (TRUE/FALSE) indicating if the customer's payment was approved."
+  },
+  {
+    "name": "pedido_faturado_aprovado",
+    "type": "BOOLEAN",
+    "description": "Consolidated flag (TRUE/FALSE). TRUE only if the order was simultaneously approved (payment) and invoiced (invoice issued)."
+  },
+  {
+    "name": "nome_canal_venda",
+    "type": "STRING",
+    "description": "Channel where the sale was made. Exact possible values: ['APP', 'MARKETPLACE OUT', 'MARKETPLACE GB', 'MARKETPLACE IN', 'SITE']. Synonyms: 'origem do pedido', 'plataforma de compra'."
+  },
+  {
+    "name": "origem_trafego",
+    "type": "STRING",
+    "description": "Origin of the web traffic that generated the conversion. If asked about ROI, state that you can only provide the gross/net revenue generated. Common values: ['PAGO', 'NÃO PAGO', 'CRM', 'OUTROS', 'BRAND AWARENESS']."
+  },
+  {
+    "name": "canal_midia",
+    "type": "STRING",
+    "description": "Media vehicle or channel that generated the click for the sale. If asked about ROI, state that you can only provide the gross/net revenue generated. Common values: ['GOOGLE', 'FACEBOOK', 'INSTAGRAM']."
+  },
+  {
+    "name": "grupo_canal_midia",
+    "type": "STRING",
+    "description": "Media channels grouped into similar categories. Example: Google, Facebook, and Instagram are grouped as 'REDES SOCIAIS' in this field. If asked about ROI, state that you can only provide the gross/net revenue generated. Common values: ['REDES SOCIAIS', 'BUSCADORES DE IA', 'MECANISMOS DE BUSCA']."
+  },
+  {
+    "name": "nome_cupom",
+    "type": "STRING",
+    "description": "Voucher or promotional coupon code applied by the customer during the purchase. If asked about ROI, state that you can only provide the gross/net revenue generated."
+  },
+  {
+    "name": "tipo_entrega",
+    "type": "STRING",
+    "description": "Delivery method chosen by the customer. Possible values: ['ENTREGA PADRÃO', 'RETIRADO NA LOJA', 'NÃO ENTREGUE']. Synonyms: 'método de envio'."
+  },
+  {
+    "name": "cpf_consumidor_anonimizado",
+    "type": "STRING",
+    "description": "Unique customer identifier (anonymized CPF). Useful for calculating the total of unique customers (distinct buyers) using COUNT DISTINCT."
+  }
+]
