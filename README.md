@@ -74,10 +74,5 @@ Em caso de manutenção dos metadados, é necessário ajustar nos dois arquivos 
 
 ## 🛠️ Como Implementar (Instruções de Uso)
 
-1. **Criação da Estrutura:** Rode o script `prc_cria_tb_vendas_genie.sql` no seu ambiente de banco de dados (ex: BigQuery). Isso criará a estrutura da tabela com as partições corretas.
-2. **Primeira Execução (Carga Histórica):** Para que a IA consiga responder a análises comparativas de anos anteriores (ex: Last Year - LY), é necessário fazer uma carga inicial retroativa. 
-   * Edite o script `prc_atualiza_tb_vendas_genie.sql`.
-   * Substitua a cláusula `WHERE dt_venda >= CURRENT_DATE() - 30` (tanto no DELETE quanto no SELECT) pela data inicial desejada (exemplo: `WHERE dt_venda >= '2022-01-01'`).
-   * Execute a procedure.
-   * **IMPORTANTE:** Após essa primeira carga, retorne o código imediatamente para a regra original (`CURRENT_DATE() - 30`). Isso garantirá que as atualizações diárias fiquem restritas a um período curto, evitando processamentos pesados e custos elevados no banco de dados. 
-3. **Carga Diária:** Agende o script `prc_atualiza_tb_vendas_genie.sql` em sua ferramenta de execução de rotinas (como Airflow ou tarefas agendadas nativas do seu banco), atualizando os dados dos últimos 30 dias.
+1. **Criação da tabela e carga histórica:** Rode o script `prc_cria_tb_vendas_genie.sql` no seu ambiente de banco de dados (ex: BigQuery). Isso criará a estrutura da tabela com as partições corretas e fará a carga histórica da `tb_vendas` desde 2022.
+2. **Carga Diária:** Agende o script `prc_atualiza_tb_vendas_genie.sql` em sua ferramenta de execução de rotinas (como Airflow ou tarefas agendadas nativas do seu banco), atualizando os dados dos últimos 30 dias.
