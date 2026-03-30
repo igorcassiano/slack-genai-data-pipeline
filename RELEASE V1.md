@@ -14,7 +14,7 @@ Agrupamentos de marketing:  Mapeamento de diferentes nomes para normalização d
 
 Obs.: A tabela não possui dados de custo de mídia. Desta forma, perguntas relacionados ao ROI (Retorno sobre Investimento), por exemplo, não retornarão resultados.
 
-Privacidade e Ações Direcionadas (CRM): Em total conformidade com a LGPD e nossas políticas de segurança, os dados sensíveis dos consumidores (como o CPF) foram anonimizados. Dessa forma, a nossa GenAI pode ranquear e identificar perfis de compra com segurança. Caso alguma análise gere ações direcionadas a clientes específicos (como o envio de brindes aos top compradores), é necessário acionar o time de CRM. Eles utilizarão os identificadores anonimizados para consultar os dados reais dos clientes de forma segura e em ambiente controlado.
+Privacidade do nosso consumidor: Em total conformidade com a LGPD e nossas políticas de segurança, os dados sensíveis dos consumidores (como o CPF) foram anonimizados. Dessa forma, a nossa GenAI pode ranquear e identificar perfis de compra com segurança. Caso alguma análise gere ações direcionadas a clientes específicos (como o envio de brindes aos top compradores), é necessário acionar o time de CRM. Eles utilizarão os identificadores anonimizados para consultar os dados reais dos clientes de forma segura e em ambiente controlado.
 
 Metadados em dois idiomas e com termos de pesquisa em destaque: Criamos um esquema de metadados completo em Português (para facilitar a manutenção) e traduzido em Inglês (otimizado para o prompt do LLM, garantindo melhores respostas). Além disso, trazemos os possíveis valores que são encontrados nos campos. Isso direciona melhor de onde a IA coletará as respostas e traz resultados mais precisos.
 
