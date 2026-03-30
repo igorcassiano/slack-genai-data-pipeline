@@ -18,7 +18,8 @@ A construção e manutenção desta tabela são divididas em duas etapas princip
 A estrutura inicial da tabela foi desenhada focando em alta performance e redução de custos no banco de dados:
 * **Particionamento:** A tabela é particionada pela coluna `data_venda`. Isso significa que consultas filtradas por data lerão apenas os dados necessários, não a tabela inteira.
 * **Clusterização:** Os dados são fisicamente organizados pelas colunas `nome_marca`, `nome_categoria`, `nome_canal_venda` e `canal_midia`, acelerando drasticamente os filtros mais comuns usados pelos analistas.
-
+* **Carga Histórica:** Na criação da tabela são carregados os dados históricos da `tb_vendas` desde 2022. 
+  
 ### 2. Atualização Diária (`prc_atualiza_tb_vendas_genie.sql`)
 A rotina de atualização (ETL) foi construída para ser segura e podendo ser rodada várias vezes sem duplicação dos dados.
 * **Janela Móvel de 30 Dias:** O script apaga os dados dos últimos 30 dias de venda (`CURRENT_DATE() - 30`) e os insere novamente. Isso garante que qualquer mudança de status do pedido (ex: de "pendente" para "faturado" ou "cancelado") seja atualizada retroativamente.
